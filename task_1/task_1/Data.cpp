@@ -1,20 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Data.h"
+#include <sstream>
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
-Data::Data(int day, int month, int year, int hour, int minute, int second) {
-	this->day = day;
-	this->month = month;
-	this->year = year;
-	this->hour = hour;
-	this->minute = minute;
-	this->second = second;
-}
-
 bool checkDay(Data* data, int day) {
-	int month = data->getMonth();
+	int month = data->get(MONTH);
 
-	switch(month) {
+	switch (month) {
 	case 1:
 	case 3:
 	case 5:
@@ -22,17 +16,19 @@ bool checkDay(Data* data, int day) {
 	case 8:
 	case 10:
 	case 12:
-		if(day >= 1 && day <= 31) {
+		if (day >= 1 && day <= 31) {
 			return true;
 		}
 	case 2:
-		int year = data->getYear();
-		if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-			if(day >= 1 && day <= 29) {
+		int year;
+		year = data->get(YEAR);
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+			if (day >= 1 && day <= 29) {
 				return true;
 			}
-		} else {
-			if(day >= 1 && day <= 28) {
+		}
+		else {
+			if (day >= 1 && day <= 28) {
 				return true;
 			}
 		}
@@ -40,7 +36,7 @@ bool checkDay(Data* data, int day) {
 	case 6:
 	case 9:
 	case 11:
-		if(day >= 1 && day <= 30) {
+		if (day >= 1 && day <= 30) {
 			return true;
 		}
 	}
@@ -48,105 +44,125 @@ bool checkDay(Data* data, int day) {
 	return false;
 }
 
-bool checkMonth(int month) {
-	return month >= 1 && month <= 12;
-}
-
-bool checkYear(int year) {
-	return year >= 0;
-}
-
-bool checkHour(int hour) {
-	return hour >= 0 && hour <= 23;
-}
-
-bool checkMinute(int minute) {
-	return minute >= 0 && minute <= 59;
-}
-
-bool checkSecond(int second) {
-	return second >= 0 && second <= 59;
-}
-
-int Data::getDay() {
-	return this->day;
-}
-
-void Data::setDay(int day) {
-	if(!checkDay(this, day)) {
-		cerr << "Invalid day (day = " << day << ")" << endl;
-		return;
-	}
-
-	this->day = day;
-}
-
-int Data::getMonth() {
-	return this->month;
-}
-
-void Data::setMonth(int month) {
-	if(!checkMonth(month)) {
-		cerr << "Invalid month (month = " << month << ")" << endl;
-		return;
-	}
-
-	this->month = month;
-}
-
-int Data::getYear() {
-	return this->year;
-}
-
-void Data::setYear(int year) {
-	if(!checkYear(year)) {
+Data::Data(int day, int month, int year, int hour, int minute, int second) {
+	if (year < 0) {
 		cerr << "Invalid year (year = " << year << ")" << endl;
-		return;
+		//exit(1);
 	}
 
 	this->year = year;
-}
 
-int Data::getHour() {
-	return this->hour;
-}
+	if (month < 1 || month > 12) {
+		cerr << "Invalid month (month = " << month << ")" << endl;
+		//exit(1);
+	}
 
-void Data::setHour(int hour) {
-	if(!checkHour(hour)) {
+	this->month = month;
+
+	if (!checkDay(this, day)) {
+		cerr << "Invalid day (day = " << day << ")" << endl;
+		//exit(1);
+	}
+
+	this->day = day;
+		
+	if (hour < 0 || hour > 23) {
 		cerr << "Invalid hour (hour = " << hour << ")" << endl;
-		return;
+		//exit(1);
 	}
 
 	this->hour = hour;
-}
 
-int Data::getMinute() {
-	return this->minute;
-}
-
-void Data::setMinute(int minute) {
-	if(!checkMinute(minute)) {
+	if (minute < 0 || minute > 59) {
 		cerr << "Invalid minute (minute = " << minute << ")" << endl;
-		return;
+		//exit(1);
 	}
 
 	this->minute = minute;
-}
 
-int Data::getSecond() {
-	return this->second;
-}
-
-void Data::setSecond(int second) {
-	if(!checkSecond(second)) {
+	if (second < 0 || second > 59) {
 		cerr << "Invalid second (second = " << second << ")" << endl;
-		return;
+		//exit(1);
 	}
 
 	this->second = second;
 }
 
+int Data::get(FieldType type) {
+	switch (type) {
+	case DAY:
+		return this->day;
+	case MONTH:
+		return this->month;
+	case YEAR:
+		return this->year;
+	case HOUR:
+		return this->hour;
+	case MINUTE:
+		return this->minute;
+	default:
+		return this->second;
+	}
+}
+
+void Data::set(FieldType type, int value) {
+	switch (type) {
+	case DAY:
+		if (!checkDay(this, value)) {
+			cerr << "Invalid day (day = " << value << ")" << endl;
+			return;
+		}
+
+		this->day = value;
+		break;
+	case MONTH:
+		if (value < 1 || value > 12) {
+			cerr << "Invalid month (month = " << value << ")" << endl;
+			return;
+		}
+
+		this->month = value;
+		break;
+	case YEAR:
+		if (value < 0) {
+			cerr << "Invalid year (year = " << value << ")" << endl;
+			return;
+		}
+
+		this->year = value;
+		break;
+	case HOUR:
+		if (value < 0 || value > 23) {
+			cerr << "Invalid hour (hour = " << value << ")" << endl;
+			return;
+		}
+
+		this->hour = value;
+		break;
+	case MINUTE:
+		if (value < 0 || value > 59) {
+			cerr << "Invalid minute (minute = " << value << ")" << endl;
+			return;
+		}
+
+		this->minute = value;
+		break;
+	case SECOND:
+		if (value < 0 || value > 59) {
+			cerr << "Invalid second (second = " << value << ")" << endl;
+			return;
+		}
+
+		this->second = value;
+		break;
+	}
+}
+
 string Data::toString() {
-	return day + "." + month + "." + year + " " + hour + ":" + minute + ":" + second;
+	char buffer[20];
+	sprintf(buffer, "%02d.%02d.%d %02d:%02d:%02d", day, month, year, hour, minute, second);
+
+	string str(buffer);
+	return str;
 }
 

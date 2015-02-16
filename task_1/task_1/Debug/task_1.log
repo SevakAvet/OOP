@@ -1,0 +1,21 @@
+﻿Build started 16.02.2015 9:45:58.
+     1>Project "C:\Users\AvetisyanSY\OOP\task_1\task_1\task_1.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\task_1.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Data.cpp
+         Data.cpp
+     1>c:\users\avetisyansy\oop\task_1\task_1\data.cpp(39): error C2360: initialization of 'year' is skipped by 'case' label
+                 c:\users\avetisyansy\oop\task_1\task_1\data.cpp(29) : see declaration of 'year'
+     1>c:\users\avetisyansy\oop\task_1\task_1\data.cpp(40): error C2360: initialization of 'year' is skipped by 'case' label
+                 c:\users\avetisyansy\oop\task_1\task_1\data.cpp(29) : see declaration of 'year'
+     1>c:\users\avetisyansy\oop\task_1\task_1\data.cpp(41): error C2360: initialization of 'year' is skipped by 'case' label
+                 c:\users\avetisyansy\oop\task_1\task_1\data.cpp(29) : see declaration of 'year'
+     1>c:\users\avetisyansy\oop\task_1\task_1\data.cpp(42): error C2360: initialization of 'year' is skipped by 'case' label
+                 c:\users\avetisyansy\oop\task_1\task_1\data.cpp(29) : see declaration of 'year'
+     1>c:\users\avetisyansy\oop\task_1\task_1\data.cpp(150): error C2110: '+' : cannot add two pointers
+     1>Done Building Project "C:\Users\AvetisyanSY\OOP\task_1\task_1\task_1.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.75

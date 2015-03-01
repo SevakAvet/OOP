@@ -166,3 +166,7 @@ string Data::toString() {
 	return str;
 }
 
+bool Data::operator ==(Data a) {
+	return toString() == a.toString();
+}
+

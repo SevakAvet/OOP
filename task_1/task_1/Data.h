@@ -13,8 +13,10 @@ private :
 	int second;
 
 public:
+	Data();
 	Data(int day, int month, int year, int hour, int minute, int second);
 	int get(FieldType f);
 	void set(FieldType f, int value);
 	string toString();
+	bool operator ==(Data a);
 };

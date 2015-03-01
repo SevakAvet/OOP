@@ -1,14 +1,44 @@
-﻿Build started 16.02.2015 20:43:29.
+﻿Build started 01.03.2015 23:22:27.
      1>Project "G:\My programms\OOP\task_1\task_1\task_1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         G:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         G:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt List.cpp main.cpp
          main.cpp
-       Link:
-         G:\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\My programms\OOP\task_1\Debug\task_1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\My programms\OOP\task_1\Debug\task_1.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\My programms\OOP\task_1\Debug\task_1.lib" /MACHINE:X86 Debug\Data.obj
-         Debug\main.obj
-         task_1.vcxproj -> G:\My programms\OOP\task_1\Debug\task_1.exe
-     1>Done Building Project "G:\My programms\OOP\task_1\task_1\task_1.vcxproj" (Build target(s)).
+     1>g:\my programms\oop\task_1\task_1\data.h(4): error C2011: 'FieldType' : 'enum' type redefinition
+                 g:\my programms\oop\task_1\task_1\data.h(4) : see declaration of 'FieldType'
+     1>g:\my programms\oop\task_1\task_1\data.h(6): error C2011: 'Data' : 'class' type redefinition
+                 g:\my programms\oop\task_1\task_1\data.h(6) : see declaration of 'Data'
+     1>g:\my programms\oop\task_1\task_1\main.cpp(9): error C2079: 'data1' uses undefined class 'Data'
+     1>g:\my programms\oop\task_1\task_1\main.cpp(9): error C2078: too many initializers
+     1>g:\my programms\oop\task_1\task_1\main.cpp(10): error C2079: 'data2' uses undefined class 'Data'
+     1>g:\my programms\oop\task_1\task_1\main.cpp(10): error C2078: too many initializers
+     1>g:\my programms\oop\task_1\task_1\main.cpp(12): error C2664: 'void List::add(Data)' : cannot convert argument 1 from 'int' to 'Data'
+                 Source or target has incomplete type
+     1>g:\my programms\oop\task_1\task_1\main.cpp(13): error C2664: 'void List::add(Data)' : cannot convert argument 1 from 'int' to 'Data'
+                 Source or target has incomplete type
+         List.cpp
+     1>g:\my programms\oop\task_1\task_1\data.h(4): error C2011: 'FieldType' : 'enum' type redefinition
+                 g:\my programms\oop\task_1\task_1\data.h(4) : see declaration of 'FieldType'
+     1>g:\my programms\oop\task_1\task_1\data.h(6): error C2011: 'Data' : 'class' type redefinition
+                 g:\my programms\oop\task_1\task_1\data.h(6) : see declaration of 'Data'
+     1>g:\my programms\oop\task_1\task_1\list.cpp(39): error C2027: use of undefined type 'Data'
+                 g:\my programms\oop\task_1\task_1\data.h(6) : see declaration of 'Data'
+     1>g:\my programms\oop\task_1\task_1\list.cpp(56): error C2678: binary '==' : no operator found which takes a left-hand operand of type 'Data' (or there is no acceptable conversion)
+                 g:\my programms\oop\task_1\task_1\data.h(21): could be 'bool Data::operator ==(Data)'
+                 g:\visual studio\vc\include\system_error(410): or       'bool std::operator ==(const std::error_condition &,const std::error_code &) throw()'
+                 g:\visual studio\vc\include\system_error(402): or       'bool std::operator ==(const std::error_code &,const std::error_condition &) throw()'
+                 g:\visual studio\vc\include\exception(507): or       'bool std::operator ==(const std::exception_ptr &,std::nullptr_t)'
+                 g:\visual studio\vc\include\exception(502): or       'bool std::operator ==(std::nullptr_t,const std::exception_ptr &)'
+                 g:\visual studio\vc\include\exception(497): or       'bool std::operator ==(const std::exception_ptr &,const std::exception_ptr &)'
+                 while trying to match the argument list '(Data, Data)'
+     1>g:\my programms\oop\task_1\task_1\list.cpp(70): error C2027: use of undefined type 'Data'
+                 g:\my programms\oop\task_1\task_1\data.h(6) : see declaration of 'Data'
+     1>g:\my programms\oop\task_1\task_1\list.cpp(70): error C2228: left of '.toString' must have class/struct/union
+     1>g:\my programms\oop\task_1\task_1\list.cpp(74): error C2027: use of undefined type 'Data'
+                 g:\my programms\oop\task_1\task_1\data.h(6) : see declaration of 'Data'
+     1>g:\my programms\oop\task_1\task_1\list.cpp(74): error C2228: left of '.toString' must have class/struct/union
+         Generating Code...
+     1>Done Building Project "G:\My programms\OOP\task_1\task_1\task_1.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.55
+Time Elapsed 00:00:00.47

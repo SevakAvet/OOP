@@ -1,14 +1,18 @@
 #include "Data.h"
+#include "List.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-	Data* data1 = new Data(16, 2, 2015, 9, 43, 0);
-	Data* data2 = new Data(16, 2, 2015, 9, 60, 0);
+	List* a = new List();
+	Data data1(16, 2, 2015, 9, 43, 0);
+	Data data2(16, 2, 2015, 9, 59, 0);
 
-	cout << data1->toString() << endl;
-	cout << data2->toString() << endl;
+	a->add(data1);
+	a->add(data2);
+
+	a->print();
 
 	getchar();
 	return 0;

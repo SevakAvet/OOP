@@ -1,3 +1,4 @@
+#include <string>
 #include <vector>
 #include "Route.h"
 
@@ -13,5 +14,8 @@ private:
 	int curTo;
 	double curPos;
 public:
+	Train();
 	Train(int id, vector<Route> routes, double v);
+	string toString();
+	void print();
 };

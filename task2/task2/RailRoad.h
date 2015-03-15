@@ -1,11 +1,13 @@
 #include <string>
+#include "Route.h"
+#include "Train.h"
 
 class RailRoad {
 private:
-	vector<Route> routes;
+	vector<Train> trains;
 public:
 	RailRoad();
-	RailRoad(vector<Route> routes);
+	RailRoad(vector<Train> routes);
 	void add(Route route);
 	void tick();
 	void check();

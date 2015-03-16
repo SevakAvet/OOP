@@ -1,5 +1,5 @@
 #include <string>
-#include "Route.h"
+#include <vector>
 #include "Train.h"
 
 class RailRoad {
@@ -7,10 +7,9 @@ private:
 	vector<Train> trains;
 public:
 	RailRoad();
-	RailRoad(vector<Train> routes);
-	void add(Route route);
+	RailRoad(vector<Train> trains);
 	void tick();
-	void check();
+	bool check();
 	string toString();
 	void print();
 };

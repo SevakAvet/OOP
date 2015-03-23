@@ -45,11 +45,11 @@ void nonCollisionCase() {
 	RailRoad r;
 	r = RailRoad(trains);
 
-	do {
+		do {
 		r.print();
 		r.tick();
 		if(r.check()) {
-			cout << "COLLISION!!!" << endl;
+			cout << "BOOOM!" << endl;
 		}
 	} while(getchar() != '!');
 }
@@ -68,7 +68,7 @@ vector<Route> routes1;
 	routes1.push_back(route);
 
 	Train train1;
-	train1 = Train(1, routes1, 1);
+	train1 = Train(1, routes1, 5);
 
 	//--------------------------------------
 
@@ -84,7 +84,7 @@ vector<Route> routes1;
 	routes2.push_back(route);
 
 	Train train2;
-	train2 = Train(2, routes2, 1);
+	train2 = Train(2, routes2, 5);
 
 	//--------------------------------------
 
@@ -99,7 +99,7 @@ vector<Route> routes1;
 		r.print();
 		r.tick();
 		if(r.check()) {
-			cout << "COLLISION!!!" << endl;
+			cout << "BOOOM!" << endl;
 		}
 	} while(getchar() != '!');
 }

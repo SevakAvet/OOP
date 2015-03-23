@@ -45,9 +45,11 @@ bool RailRoad::check() {
 
 	set<int> collisions;
 	for(int i = 0; i < trains.size(); ++i) {
-		if(trains[i].getCurPos() - EPS <= 0) {
-			if(find(collisions.begin(), collisions.end(), trains[i].getFrom()) != collisions.end()) {
+		if(trains[i].getCurPos() <= EPS) {
+			if(collisions.find(trains[i].getFrom()) != collisions.end()) {
 				return true;
+			} else {
+				collisions.insert(trains[i].getFrom());
 			}
 		}
 	}
